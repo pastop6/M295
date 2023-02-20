@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="name" id="name">
+    <input type="button" value="senden" id="senden">
+
+    <script>
+        $("#senden").click(function (e) { 
+            e.preventDefault();
+            var name = $("#name").val();
+
+            $.ajax({
+                type: "POST",
+                url: "backend.php?id=4",
+                data: {
+                    name: name,
+                    alter: 32,
+                    wohnort: "Herisau"
+                },
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+                }
+            }); 
+        });
+    </script>
+    
+</body>
+</html>
