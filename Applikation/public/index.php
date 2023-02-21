@@ -4,6 +4,22 @@ declare(strict_types=1);
 
 use src\Route;
 
+define('DBSQLITE3', './../data/dbfile.sqlite3');
+
+
+// echo DBSQLITE3;
+echo "<br> <br>";
+
+if (file_exists(DBSQLITE3)) {
+    // echo "Datei existiert<br>";
+}else{
+    // echo "Datei existiert nicht<br>";
+    $sqlstring = file_get_contents('./../data/db.sql');
+    echo $sqlstring;
+    $db = new SQLite3(DBSQLITE3);
+    $db->exec($sqlstring);
+}
+
 
 class Autoloader{
     public static function register(){
@@ -62,6 +78,5 @@ Route::add("/([a-zA-Z0-9]*)/([a-zA-Z0-9]*)/([a-zA-Z0-9]*)", function ($class, $m
 });
 
 Route::run("/");
-
 
 ?>
