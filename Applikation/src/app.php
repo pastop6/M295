@@ -21,8 +21,13 @@ class app{
     }
 
     public function __destruct(){
-        header("Access-Control-Allow-Origin: *");
+        http_response_code(200);
+        header("http/1.1 200 ok");
+        header("access-control-allow-methods: GET, POST");
         header("Content-Type: application/json; charset=UTF-8");
+        header("cache-control: no-cache, must-revalidate");
+        header("Access-Control-Allow-Origin: *");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         echo json_encode($this->response);
     }
 }
