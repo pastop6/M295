@@ -1,0 +1,21 @@
+{
+    "name": "mhe/com_app",
+    "description": "M295 Beschreibung",
+    "autoload": {
+        "psr-4": {
+            "Mhe\\ComApp\\": "lib/",
+            "APP\\Admin\\": "APP/Admin",
+            "APP\\WWW\\": "APP/WWW",
+            "src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "it-master",
+            "email": "info@it-master.ch"
+        }
+    ],
+    "require": {
+        "vlucas/valitron": "^1.4"
+    }
+}
